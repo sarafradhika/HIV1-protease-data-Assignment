@@ -1,0 +1,66 @@
+Mini Project
+
+1. Title: HIV-1 protease cleavage data
+
+2. Source Information
+   -- Creators: Thorsteinn Rögnvaldsson and Liwen You
+     -- Rögnvaldsson: Halmstad University, Box 823, 301 18, Halmstad, Sweden
+   -- Donor: Thorsteinn Rögnvaldsson (denni@hh.se, denni63@gmail.com)  
+   -- Date: November 28, 2014
+
+   -- Modified by Yang Shen (yshen@tamu.edu) for course materials
+   -- Date: Oct. 29, 2015
+
+   -- Acknowledgements: Aleksejs Kontijevskis (the raw 1625 data set)
+   
+   -- The data consists of two of four (4) originals: the 746 data and the Impens data. (The 1625 data and the Schilling data are not included here)
+   
+
+3. Number of instances
+   - 746 data: 746 
+   - Impens data: 947 
+
+
+4. Attributes
+
+   There are 20 allowed letters in the 8 character string (the allowed alphabet): 'ARNDCQEGHILKMFPSTWYV'
+   These represent amino acids.
+   The cleavage label has only two possible values: -1 and +1.
+
+
+5. Number of attributes
+
+   There are only two attributes: a 8 letter string (octamer) and a label that tells whether this string represents a site in a peptide (or protein) where the HIV-1 protease cleaves it (+1 if yes, -1 if no). 
+   The 8 letter string can also be viewed as 8 independent attributes. It is common to map the 8 letters to an orthogonal binary representation; a 8 by 20 matrix (8 letters, 20 amino acids) that is transformed into a 160-dimensional vector (See more in Methods in the reference paper at the end, also attached)  
+   
+
+6. Class distributions
+
+   - 746 data: 402 cleaved, 344 non-cleaved
+   - Impens data: 149 cleaved, 798 non-cleaved
+
+
+7. Reference
+
+   (a) Rögnvaldsson, You and Garwicz (2015) "State of the art prediction of HIV-1 protease 
+       cleavage sites", Bioinformatics, vol 31 (8), pp. 1204-1210.
+       - Discusses the characteristics of the four data sets.
+       - It is shown that a linear SVM with standard orthogonal encoding is the best
+         predictor when tested across data sets. The AUC (Area Under the [ROC] Curve)
+         value is 0.833 when using the 746 data as training set and the Impens data as the Test data. 
+
+8. Your task
+-Use your favorite SVM program (examples include but are not limited to: fitcsvm in MATLAB, SVM in e1071 package in R, LibSVM https://www.csie.ntu.edu.tw/~cjlin/libsvm/ that is available through many interfaces such as Matlab, R, Python, CUDA, C# etc and so on) to train on the 746 data and test on the Impens data. 
+-Try different kernel functions (including the default dot product / linear SVM) provided in those programs and compare the ROC curves (sensitivity versus 1-specificity) and the corresponding AUC values.  Many programs plot the curves and calculate the AUC values for you. For nonlinear kernels with parameters, please use cross validation to optimize their values. 
+
+OR
+You can also try your favorite machine learning programs to meet or beat the original paper, that is, AUC=0.833.  (You are not graded based on the performance alone). 
+
+
+What to turn in: A zipped folder containing
+- A PDF file briefly documenting the methods, the ROC curves using different kernels and their AUC values, and what might be learned there. 
+- Your source code
+
+Please name the email subject and the compressed file with the following rule: first-name-initial+last-name+Ô_MiniÕ; and submit to StructBioinf@gmail.com no later than the midnight of Nov. 11, 2018.  
+
+
